@@ -22,7 +22,7 @@ const jwt = require('jsonwebtoken');
 //     res.json({message:"User deleted successfully"});
 // };
 
-exports.getusers = async (req,res) =>{
+exports.register = async (req,res) =>{
     try{
         const {name,email,password} = req.body;
 
@@ -55,9 +55,9 @@ exports.getusers = async (req,res) =>{
             message:"invalid credentials"
         });
      }
-     const token=jwt.sign(
+const token=jwt.sign(
         {id:user._id},
-        "secretkey",
+        "mysecrettoken",
         {expiresIn:"1h"}
         
      );
